@@ -5,6 +5,7 @@ CREATE PROCEDURE InsertingData()
 BEGIN
   START TRANSACTION;
 
+-- Adding test data to Sales_Employee
 INSERT INTO Sales_Employee (Sales_Fname, Sales_Lname, Sales_Salary, Sales_BankAcc, Sales_NINum, Sales_CommRate)
 VALUES
     ('John', 'Doe', 55000.00, '12345678901234', 'ABC123456', 5.0),
@@ -18,6 +19,7 @@ VALUES
     ('William', 'Harris', 56000.00, '98765432101234', 'STU987654', 4.9),
     ('Linda', 'Clark', 54000.00, '12345678901234', 'MNO123456', 5.4);
 
+-- Adding test data to Delivery_Employee
 INSERT INTO Delivery_Employee (Delivery_Fname, Delivery_Lname, Delivery_Salary, Delivery_BankAcc, Delivery_NINum)
 VALUES
         ('Daniel', 'Brown', 45000.00, '12345678901234', 'ABC123456'),
@@ -31,6 +33,7 @@ VALUES
         ('Elijah', 'Miller', 49000.00, '98765432101234', 'STU987654'),
         ('Emma', 'Moore', 43000.00, '12345678901234', 'MNO123456');
 
+-- Adding test data to Client
 INSERT INTO Client (Client_Fname, Client_Lname, Client_Address, Client_Phone)
 VALUES
             ('Robert', 'Johnson', '123 Main St, New York, NY', '555-123-4567'),
@@ -43,7 +46,8 @@ VALUES
             ('Jennifer', 'Jones', '567 Cherry Dr, Dallas, TX', '555-890-1234'),
             ('Daniel', 'Lee', '890 Willow Ln, Seattle, WA', '555-901-2345'),
             ('Olivia', 'Clark', '432 Birch Rd, Denver, CO', '555-012-3456');
-            
+
+-- Adding test data to Project
 INSERT INTO Project (Project_Name, Project_Value, Client_ID, Sales_ID, Tech_Lead, Project_Start_Date, Project_End_Date, Project_Completed)
 VALUES
     ('Project A', 100000.00, 1, 1, 1, '2023-01-15', '2023-04-30', 1),
@@ -57,6 +61,7 @@ VALUES
     ('Project I', 105000.00, 9, 9, 9, '2023-09-10', '2023-12-20', 1),
     ('Project J', 93000.00, 10, 10, 10, '2023-10-15', '2023-01-25', 0);
 
+-- Adding test data to Project_Delivery
 INSERT INTO Project_Delivery (Project_ID, Delivery_ID, Actively_Working)
 VALUES
     (1, 1, 1),
@@ -70,6 +75,7 @@ VALUES
     (9, 9, 1),
     (10, 10, 0);
 
+-- Adding test data to Technology
 INSERT INTO Technology (Technology_Name)
 VALUES
     ('Java'),
@@ -83,6 +89,7 @@ VALUES
     ('Swift'),
     ('C#');
 
+-- Adding test data to Project_Technology
 INSERT INTO Project_Technology (Project_ID, Technology_ID)
 VALUES
     (1, 1),
