@@ -3,6 +3,7 @@ package org.kainos.ea;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.kainos.ea.resources.DeliveryController;
 
 public class trueApplication extends Application<trueConfiguration> {
 
@@ -24,6 +25,7 @@ public class trueApplication extends Application<trueConfiguration> {
     public void run(final trueConfiguration configuration,
                     final Environment environment) {
         // TODO: implement application
+        environment.jersey().register((new DeliveryController()));
     }
 
 }
