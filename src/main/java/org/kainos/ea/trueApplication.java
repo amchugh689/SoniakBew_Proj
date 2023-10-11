@@ -5,7 +5,9 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
+
 import org.kainos.ea.resources.SalesEmpController;
+
 
 public class trueApplication extends Application<trueConfiguration> {
 
@@ -21,12 +23,11 @@ public class trueApplication extends Application<trueConfiguration> {
     @Override
     public void initialize(final Bootstrap<trueConfiguration> bootstrap) {
         // TODO: application initialization
-
-        bootstrap.addBundle(new SwaggerBundle<trueConfiguration>(){
-        @Override
-        protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(trueConfiguration configuration) {
-            return configuration.getSwagger();
-        }
+      bootstrap.addBundle(new SwaggerBundle<trueConfiguration>(){
+            @Override
+            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(trueConfiguration configuration) {
+                return configuration.getSwagger();
+            }
         });
     }
 
