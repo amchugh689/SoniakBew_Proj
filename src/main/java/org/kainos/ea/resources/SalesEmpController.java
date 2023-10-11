@@ -5,6 +5,7 @@ import org.kainos.ea.api.SalesEmpService;
 import org.kainos.ea.cli.SalesEmp;
 import org.kainos.ea.cli.SalesEmpRequest;
 import org.kainos.ea.client.FailedToCreateSalesEmpException;
+import org.kainos.ea.client.InvalidSalesEmpException;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -40,6 +41,11 @@ public class SalesEmpController {
             System.err.println(e.getMessage());
 
             return Response.serverError().build();
+        }
+        catch (InvalidSalesEmpException e) {
+            System.err.println(e.getMessage());
+
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
 
     }

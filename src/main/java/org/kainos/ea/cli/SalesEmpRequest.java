@@ -66,7 +66,8 @@ public class SalesEmpRequest {
             @JsonProperty("Sales_Lname") String sales_Lname,
             @JsonProperty("Sales_Salary") double sales_Salary,
             @JsonProperty("Sales_BankAcc") String sales_BankAcc,
-            @JsonProperty("Sales_Salary") String sales_NINum, double sales_CommRate) {
+            @JsonProperty("Sales_NINum") String sales_NINum,
+            @JsonProperty("Sales_CommRate")double sales_CommRate) {
                 Sales_Fname = sales_Fname;
                 Sales_Lname = sales_Lname;
                 Sales_Salary = sales_Salary;

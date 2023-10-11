@@ -16,8 +16,8 @@ public class SalesEmpDao {
     public int createSalesEmp(SalesEmpRequest se) throws SQLException {
         Connection c = databaseConnector.getConnection();
 
-        String insertStatement = ("INSERT INTO Sales_Employee(Sales_Fname, Sales_Lname, Sales_Salary, Sales_BankAcc, "
-                + "Sales_NINum, Sales_CommRate) VALUES ?, ?, ?, ?, ?, ?");
+        String insertStatement = ("INSERT INTO Sales_Employee(Sales_Fname, Sales_Lname, Sales_Salary, Sales_BankAcc,"
+                + " Sales_NINum, Sales_CommRate) VALUES (?, ?, ?, ?, ?, ?);");
 
         PreparedStatement st = c.prepareStatement(insertStatement, Statement.RETURN_GENERATED_KEYS);
 

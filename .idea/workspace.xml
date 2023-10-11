@@ -4,22 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d875a7c-5541-4ca4-9e85-c7280a3534fc" name="Changes" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/api/SalesEmpService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/SalesEmp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/db/SalesEmpDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/resources/SalesEmpController.java" afterDir="false" />
+    <list default="true" id="a2031cda-f55a-4864-b3ff-405bfc5f78aa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/client/InvalidSalesEmpException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/core/SalesEmpValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueConfiguration.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
->>>>>>> main
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/api/SalesEmpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/api/SalesEmpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/SalesEmpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/SalesEmpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/db/SalesEmpDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/db/SalesEmpDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/resources/SalesEmpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/resources/SalesEmpController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,26 +32,26 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2</component>
-  <component name="ProjectId" id="2WbuHD3lnVMXKlLoVsbyz4B3zr0" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2WcaNjc6gxrJWcEkZRwOez0mi0i" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-<<<<<<< HEAD
-    "git-widget-placeholder": "SB008-Create-Sales-Emp"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;SB008-Create-Sales-Emp&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="trueApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.kainos.ea.trueApplication" />
-      <module name="Soniak_Bew" />
+      <module name="DropwizardDemo" />
       <option name="PROGRAM_PARAMETERS" value="server" />
       <extension name="coverage">
         <pattern>
@@ -75,20 +68,15 @@
         <item itemvalue="Application.trueApplication" />
       </list>
     </recent_temporary>
-=======
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/corydawson/Documents/Cappuccino Java Project/SoniakBew_Proj"
-
->>>>>>> main
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2d875a7c-5541-4ca4-9e85-c7280a3534fc" name="Changes" comment="" />
-      <created>1697013513214</created>
+      <changelist id="a2031cda-f55a-4864-b3ff-405bfc5f78aa" name="Changes" comment="" />
+      <created>1697034283922</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1697013513214</updated>
+      <updated>1697034283922</updated>
     </task>
     <servers />
   </component>
