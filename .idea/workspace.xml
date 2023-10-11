@@ -21,8 +21,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  "associatedIndex": 2</component>
   <component name="ProjectId" id="2WbuHD3lnVMXKlLoVsbyz4B3zr0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -33,10 +32,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "SB000-Adding-Swagger",
-    "last_opened_file_path": "/Users/aideenmchugh/Documents/SoniakBew_Proj/Soniak_Bew"
-  }
-}]]></component>
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/corydawson/Documents/Cappuccino Java Project/SoniakBew_Proj"
+
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
