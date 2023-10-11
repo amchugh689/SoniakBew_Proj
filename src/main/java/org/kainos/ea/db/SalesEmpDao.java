@@ -1,5 +1,6 @@
 package org.kainos.ea.db;
 import org.kainos.ea.cli.SalesEmp;
+import org.kainos.ea.cli.SalesEmpRequest;
 
 import javax.swing.plaf.nimbus.State;
 import java.io.FileInputStream;
@@ -12,7 +13,7 @@ public class SalesEmpDao {
     private static Connection conn;
     private static DatabaseConnector databaseConnector;
 
-    public int createSalesEmp(SalesEmp se) throws SQLException {
+    public int createSalesEmp(SalesEmpRequest se) throws SQLException {
         Connection c = databaseConnector.getConnection();
 
         String insertStatement = ("INSERT INTO Sales_Employee(Sales_Fname, Sales_Lname, Sales_Salary, Sales_BankAcc, "

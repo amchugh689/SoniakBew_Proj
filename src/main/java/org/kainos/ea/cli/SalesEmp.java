@@ -9,9 +9,7 @@ public class SalesEmp {
     private String Sales_NINum;
     private double Sales_CommRate;
 
-    public int getSales_ID() {
-        return Sales_ID;
-    }
+    public int getSales_ID() { return Sales_ID; }
 
     public void setSales_ID(int sales_ID) {
         Sales_ID = sales_ID;
