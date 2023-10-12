@@ -20,37 +20,34 @@ public class SalesEmpController {
     SalesEmpService salesEmpService = new SalesEmpService();
 
 
-    //Task 11. Pretend this isn't here ;)
-   @GET
+
+    @GET
     @Path("/salesemps")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getSalesEmps() {
-       try {
-           return Response.ok(salesEmpService.getAllSalesEmps()).build();
-       }
-       catch (FailedToGetSalesEmpException e) {
+        try {
+            return Response.ok(salesEmpService.getAllSalesEmps()).build();
+        } catch (FailedToGetSalesEmpException e) {
 
-               System.err.println(e.getMessage());
+            System.err.println(e.getMessage());
 
-               return Response.serverError().build();
+            return Response.serverError().build();
 
 
-       }
+        }
     }
 
     @GET
     @Path("/salesemps/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getSalesEmpByID(@PathParam("id") int id) {
-        try{
+        try {
             return Response.ok(salesEmpService.getSalesEmpByID(id)).build();
-        }
-        catch (FailedToGetSalesEmpException e) {
+        } catch (FailedToGetSalesEmpException e) {
             System.err.println(e.getMessage());
 
             return Response.serverError().build();
-        }
-        catch (SalesEmpDoesNotExistException e) {
+        } catch (SalesEmpDoesNotExistException e) {
             System.err.println(e.getMessage());
 
             return Response.status(Response.Status.BAD_REQUEST).build();
@@ -60,17 +57,15 @@ public class SalesEmpController {
 
     @POST
     @Path("/salesemps")
-    @Produces (MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response createSalesEmp(SalesEmpRequest se) {
-        try{
+        try {
             return Response.ok(salesEmpService.createSalesEmp(se)).build();
-        }
-        catch (FailedToCreateSalesEmpException e) {
+        } catch (FailedToCreateSalesEmpException e) {
             System.err.println(e.getMessage());
 
             return Response.serverError().build();
-        }
-        catch (InvalidSalesEmpException e) {
+        } catch (InvalidSalesEmpException e) {
             System.err.println(e.getMessage());
 
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
@@ -81,7 +76,7 @@ public class SalesEmpController {
     @PUT
     @Path("/salesemps/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateSalesEmp(@PathParam("id") int id,  SalesEmpRequest se) {
+    public Response updateSalesEmp(@PathParam("id") int id, SalesEmpRequest se) {
         try {
             salesEmpService.updateSalesEmp(id, se);
             return Response.ok().build();
@@ -96,5 +91,24 @@ public class SalesEmpController {
         }
 
 
+    }
+
+    @DELETE
+    @Path("/salesemp/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteSalesEmp(@PathParam("id") int id) {
+        try {
+            salesEmpService.deleteSalesEmp(id);
+
+            return Response.ok().build();
+        } catch (SalesEmpDoesNotExistException e) {
+            System.err.println(e.getMessage());
+
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        } catch (FailedToDeleteSalesEmpException e) {
+            System.err.println(e.getMessage());
+
+            return Response.serverError().build();
+        }
     }
 }
