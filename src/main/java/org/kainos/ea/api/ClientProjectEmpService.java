@@ -14,7 +14,7 @@ public class ClientProjectEmpService {
     private ClientProjectEmpDAO clientProjectEmpDAO = new ClientProjectEmpDAO();
     public List<ClientProjectEmp> getAllClientProjectEmp() throws FailedToGetClientProjectListException {
         try {
-            List<ClientProjectEmp>clientProjectEmpList = clientProjectEmpDAO.getAllClientProjectEmp();
+            List<ClientProjectEmp> clientProjectEmpList = clientProjectEmpDAO.getAllClientProjectEmp();
 
             return clientProjectEmpList;
         } catch (SQLException e) {

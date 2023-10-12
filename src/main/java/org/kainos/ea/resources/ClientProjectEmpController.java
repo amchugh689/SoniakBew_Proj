@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Api("Soniak Bew API")
+@Path("/api")
 public class ClientProjectEmpController {
     private ClientProjectEmpService clientProjectEmpService = new ClientProjectEmpService();
     @GET
