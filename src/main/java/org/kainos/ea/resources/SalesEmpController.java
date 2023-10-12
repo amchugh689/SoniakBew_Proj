@@ -10,6 +10,7 @@ import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 
 @Api("Soniak Bew Sales Employee API")
@@ -20,12 +21,22 @@ public class SalesEmpController {
 
 
     //Task 11. Pretend this isn't here ;)
-   /*@GET
+   @GET
     @Path("/salesemps")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getSalesEmployees() {
-        return "test value";
-    }*/
+    public Response getSalesEmps() {
+       try {
+           return Response.ok(salesEmpService.getAllSalesEmps()).build();
+       }
+       catch (FailedToGetSalesEmpException e) {
+
+               System.err.println(e.getMessage());
+
+               return Response.serverError().build();
+
+
+       }
+    }
 
     @GET
     @Path("/salesemps/{id}")

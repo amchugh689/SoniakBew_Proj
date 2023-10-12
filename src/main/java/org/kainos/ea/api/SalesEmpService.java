@@ -9,6 +9,7 @@ import org.kainos.ea.db.SalesEmpDao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class SalesEmpService {
     SalesEmpDao salesEmpDao = new SalesEmpDao();
@@ -16,6 +17,22 @@ public class SalesEmpService {
     private static Connection conn;
     private static DatabaseConnector databaseConnector;
     SalesEmpValidator salesEmpValidator = new SalesEmpValidator();
+    public List<SalesEmp> getAllSalesEmps() throws FailedToGetSalesEmpException {
+        try{
+        List<SalesEmp> salesEmpList = salesEmpDao.getAllSalesEmps();
+
+        if(salesEmpList == null) {
+            throw new FailedToGetSalesEmpException();
+        }
+
+        return salesEmpList;
+    }
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
+
+            throw new FailedToGetSalesEmpException();
+        }
+    }
 
     public SalesEmp getSalesEmpByID(int id) throws FailedToGetSalesEmpException, SalesEmpDoesNotExistException {
         try {
