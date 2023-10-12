@@ -24,10 +24,19 @@ public class DeliveryProjectDao {
         st.setInt(2, dp.getDelivery_ID());
 
         st.executeUpdate();
+    }
 
+    public void updateDeliveryProject(DeliveryProjectRequest der) throws SQLException {
+        Connection c = databaseConnector.getConnection();
 
+        String updateStatement = "UPDATE Project_Delivery SET Actively_Working = ? WHERE " +
+                "Project_ID = ? AND Delivery_ID = ?";
+        PreparedStatement st = c.prepareStatement(updateStatement);
 
+        st.setInt(1, der.isActively_Working());
+        st.setInt(2, der.getProject_ID());
+        st.setInt(3, der.getDelivery_ID());
 
-
+        st.executeUpdate();
     }
 }
