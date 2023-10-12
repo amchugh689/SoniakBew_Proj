@@ -2,10 +2,7 @@ package org.kainos.ea.api;
 
 import org.kainos.ea.cli.SalesEmp;
 import org.kainos.ea.cli.SalesEmpRequest;
-import org.kainos.ea.client.FailedToCreateSalesEmpException;
-import org.kainos.ea.client.FailedToGetSalesEmpException;
-import org.kainos.ea.client.InvalidSalesEmpException;
-import org.kainos.ea.client.SalesEmpDoesNotExistException;
+import org.kainos.ea.client.*;
 import org.kainos.ea.core.SalesEmpValidator;
 import org.kainos.ea.db.DatabaseConnector;
 import org.kainos.ea.db.SalesEmpDao;
@@ -56,19 +53,29 @@ public class SalesEmpService {
     }
 
 
-//    public void updateProduct(int id, SalesEmpRequest se) throws InvalidSalesEmpException, SalesEmpDoesNotExistException {
-//        try {
-//            String validation = salesEmpValidator.isValidSalesEmp(se);
-//
-//            if(validation != null) {
-//                throw new InvalidSalesEmpException(validation);
-//            }
-//
-//
-//            SalesEmp empToUpdate = salesEmpDao.getSalesEmpByID(id);
-//        }
-//
-//
-//    }
+    public void updateSalesEmp(int id, SalesEmpRequest se) throws InvalidSalesEmpException, SalesEmpDoesNotExistException, FailedToUpdateSalesEmpException {
+        try {
+            String validation = salesEmpValidator.isValidSalesEmp(se);
+
+            if(validation != null) {
+                throw new InvalidSalesEmpException(validation);
+            }
+
+
+            SalesEmp empToUpdate = salesEmpDao.getSalesEmpByID(id);
+
+            if(empToUpdate == null) {
+                throw new SalesEmpDoesNotExistException();
+            }
+            salesEmpDao.updateSalesEmp(id, se);
+        }
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
+
+                throw new FailedToUpdateSalesEmpException();
+        }
+
+
+    }
 
 }
