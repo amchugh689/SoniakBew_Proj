@@ -56,12 +56,12 @@ public class ProjectService {
 
     public void updateProjectClient(int id, ProjectRequestClientID project)throws InvalidProjectException,ProjectDoesNotExistException, FailedToUpdateProjectException  {
         try{
-//            Discuss tomorrow
-//            String validation = projectValidator.isValidProjectUpdateClient(project);
-//
-//            if (validation != null){
-//                throw new InvalidProjectException(validation);
-//            }
+
+            String validation = projectValidator.isValidProjectUpdateClient(project);
+
+            if (validation != null){
+                throw new InvalidProjectException(validation);
+            }
 
             Project projectToUpdate = projectDao.getProjectById(id);
 

@@ -14,4 +14,13 @@ public class ProjectValidator {
 
         return null;
     }
+
+    public String isValidProjectUpdateClient(ProjectRequestClientID project){
+
+        if (project.getClient_ID() <= 0 ) {
+            return "Value for Client_ID is not valid (values must be greater than 0)";
+        }
+
+        return null;
+    }
 }
