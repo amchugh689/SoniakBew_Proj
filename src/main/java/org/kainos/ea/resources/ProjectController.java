@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import java.util.List;
 
-@Api("Soniak Bew Database API")
+@Api("Soniak Bew Project Database API")
 @Path("/api")
 public class ProjectController {
 
