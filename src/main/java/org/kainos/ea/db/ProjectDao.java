@@ -8,10 +8,12 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import org.kainos.ea.cli.ProjectRequestClientID;
+import org.kainos.ea.cli.ProjectRequestCompleted;
 
 public class ProjectDao {
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     private DatabaseConnector databaseConnector = new DatabaseConnector();
+  
     public Project getProjectById(int Id) throws SQLException {
         Connection c = databaseConnector.getConnection();
 
@@ -36,7 +38,7 @@ public class ProjectDao {
         return null;
     }
 
-    public void updateProject(int id, ProjectRequest project) throws SQLException {
+    public void updateProjectCompleted(int id, ProjectRequestCompleted project) throws SQLException {
         Connection c = databaseConnector.getConnection();
         String updateStatement = "UPDATE Project SET Project_Completed = ? WHERE Project_ID = ?";
 
@@ -68,5 +70,16 @@ public class ProjectDao {
         }
 
         return projectList;
+  
+    public void updateProjectClient(int id, ProjectRequestClientID project) throws SQLException {
+        Connection c = databaseConnector.getConnection();
+        String updateStatement = "UPDATE Project SET Client_ID = ? WHERE Project_ID = ?";
+
+        PreparedStatement st = c.prepareStatement(updateStatement);
+
+        st.setInt(1, project.getClient_ID());
+        st.setInt(2, id);
+
+        st.executeUpdate();
     }
 }

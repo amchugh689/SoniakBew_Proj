@@ -3,11 +3,15 @@ package org.kainos.ea.api;
 import org.kainos.ea.cli.Project;
 import org.kainos.ea.cli.ProjectRequest;
 import org.kainos.ea.cli.ProjectTechDel;
-import org.kainos.ea.client.*;
+import org.kainos.ea.cli.ProjectRequestClientID;
+import org.kainos.ea.cli.ProjectRequestCompleted;
+import org.kainos.ea.client.FailedToGetProjectsException;
+import org.kainos.ea.client.FailedToUpdateProjectException;
+import org.kainos.ea.client.InvalidProjectException;
+import org.kainos.ea.client.ProjectDoesNotExistException;
 import org.kainos.ea.core.ProjectValidator;
 import org.kainos.ea.db.ProjectDao;
 
-import javax.validation.constraints.Null;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -41,9 +45,9 @@ public class ProjectService {
         }
     }
 
-    public void updateProject (int id, ProjectRequest project)throws InvalidProjectException,ProjectDoesNotExistException, FailedToUpdateProjectException  {
+    public void updateProjectCompleted(int id, ProjectRequestCompleted project)throws InvalidProjectException,ProjectDoesNotExistException, FailedToUpdateProjectException  {
         try{
-            String validation = projectValidator.isValidProjectUpdate(project);
+            String validation = projectValidator.isValidProjectUpdateCompleted(project);
 
             if (validation != null){
                 throw new InvalidProjectException(validation);
@@ -55,7 +59,30 @@ public class ProjectService {
                 throw new ProjectDoesNotExistException();
             }
 
-            projectDao.updateProject(id, project);
+            projectDao.updateProjectCompleted(id, project);
+        } catch (SQLException e){
+            System.err.println(e.getMessage());
+            throw new FailedToUpdateProjectException();
+        }
+
+    }
+
+    public void updateProjectClient(int id, ProjectRequestClientID project)throws InvalidProjectException,ProjectDoesNotExistException, FailedToUpdateProjectException  {
+        try{
+
+            String validation = projectValidator.isValidProjectUpdateClient(project);
+
+            if (validation != null){
+                throw new InvalidProjectException(validation);
+            }
+
+            Project projectToUpdate = projectDao.getProjectById(id);
+
+            if (projectToUpdate == null){
+                throw new ProjectDoesNotExistException();
+            }
+
+            projectDao.updateProjectClient(id, project);
         } catch (SQLException e){
             System.err.println(e.getMessage());
             throw new FailedToUpdateProjectException();

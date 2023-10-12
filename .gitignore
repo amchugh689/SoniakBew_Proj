@@ -37,6 +37,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+.idea/uiDesigner.xml
+.idea/workspace.xml
 
 db.properties
 .idea/workspace.xml
