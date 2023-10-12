@@ -4,10 +4,7 @@ import io.swagger.annotations.Api;
 import org.kainos.ea.api.SalesEmpService;
 import org.kainos.ea.cli.SalesEmp;
 import org.kainos.ea.cli.SalesEmpRequest;
-import org.kainos.ea.client.FailedToCreateSalesEmpException;
-import org.kainos.ea.client.FailedToGetSalesEmpException;
-import org.kainos.ea.client.InvalidSalesEmpException;
-import org.kainos.ea.client.SalesEmpDoesNotExistException;
+import org.kainos.ea.client.*;
 
 import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
@@ -70,8 +67,23 @@ public class SalesEmpController {
 
     }
 
+    @PUT
+    @Path("/salesemps/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateSalesEmp(@PathParam("id") int id,  SalesEmpRequest se) {
+        try {
+            salesEmpService.updateSalesEmp(id, se);
+            return Response.ok().build();
+        } catch (FailedToUpdateSalesEmpException e) {
+            System.err.println(e.getMessage());
+
+            return Response.serverError().build();
+        } catch (SalesEmpDoesNotExistException | InvalidSalesEmpException e) {
+            System.err.println(e.getMessage());
+
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
 
 
-
-
+    }
 }

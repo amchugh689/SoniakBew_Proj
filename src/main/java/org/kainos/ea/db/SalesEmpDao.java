@@ -63,7 +63,7 @@ public class SalesEmpDao {
 
     }
 
-/*    public void updateSalesEmp(int id, SalesEmpRequest se) throws SQLException {
+    public void updateSalesEmp(int id, SalesEmpRequest se) throws SQLException {
         Connection c = databaseConnector.getConnection();
 
         String updateStatement = "UPDATE Sales_Employee SET Sales_Fname = ?, Sales_Lname = ?, Sales_Salary = ?, " +
@@ -80,5 +80,5 @@ public class SalesEmpDao {
         st.setInt(7, id);
 
         st.executeUpdate();
-    }*/
+    }
 }
