@@ -4,10 +4,7 @@ import io.swagger.annotations.Api;
 import org.kainos.ea.api.DeliveryService;
 import org.kainos.ea.cli.Delivery;
 import org.kainos.ea.cli.DeliveryRequest;
-import org.kainos.ea.client.DeliveryDoesNotExistException;
-import org.kainos.ea.client.FailedToCreateDeliveryException;
-import org.kainos.ea.client.FailedToGetDeliveryException;
-import org.kainos.ea.client.InvalidDeliveryException;
+import org.kainos.ea.client.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -56,6 +53,25 @@ public class DeliveryController {
             System.err.println(e.getMessage());
 
             return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+    }
+
+    @PUT
+    @Path("/delivery/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response createDelivery(@PathParam("id") int id, DeliveryRequest delivery) {
+        try {
+            deliveryService.updateDelivery(id, delivery);
+
+            return Response.ok().build();
+        } catch (InvalidDeliveryException | DeliveryDoesNotExistException e) {
+            System.err.println(e.getMessage());
+
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        } catch (FailedToUpdateDeliveryException e) {
+            System.err.println(e.getMessage());
+
+            return Response.serverError().build();
         }
     }
 }

@@ -2,10 +2,7 @@ package org.kainos.ea.api;
 
 import org.kainos.ea.cli.Delivery;
 import org.kainos.ea.cli.DeliveryRequest;
-import org.kainos.ea.client.DeliveryDoesNotExistException;
-import org.kainos.ea.client.FailedToCreateDeliveryException;
-import org.kainos.ea.client.FailedToGetDeliveryException;
-import org.kainos.ea.client.InvalidDeliveryException;
+import org.kainos.ea.client.*;
 import org.kainos.ea.core.DeliveryValidator;
 import org.kainos.ea.db.DeliveryDao;
 
@@ -56,6 +53,28 @@ public class DeliveryService {
             System.err.println(e.getMessage());
 
             throw new FailedToGetDeliveryException();
+        }
+    }
+
+    public void updateDelivery(int id, DeliveryRequest delivery) throws InvalidDeliveryException, DeliveryDoesNotExistException, FailedToUpdateDeliveryException {
+        try {
+            String validation = deliveryValidator.isValidDelivery(delivery);
+
+            if (validation != null) {
+                throw new InvalidDeliveryException(validation);
+            }
+
+            Delivery deliveryToUpdate = deliveryDao.getDeliveryById(id);
+
+            if (deliveryToUpdate == null) {
+                throw new DeliveryDoesNotExistException();
+            }
+
+            deliveryDao.updateDelivery(id, delivery);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+
+            throw new FailedToUpdateDeliveryException();
         }
     }
 }

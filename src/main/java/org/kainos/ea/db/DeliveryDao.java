@@ -85,13 +85,26 @@ public class DeliveryDao {
 
         return null;
     }
-}
 
-//    public void updateDelivery(int id, DeliveryRequest delivery) throws SQLException {
-//        Connection c = databaseConnector.getConnection();
-//
-//        String updateStatement = "UPDATE Delivery_Employee SET "
-//    }
+
+    public void updateDelivery(int id, DeliveryRequest delivery) throws SQLException {
+        Connection c = databaseConnector.getConnection();
+
+        String updateStatement = "UPDATE Delivery_Employee SET Delivery_Fname = ?, Delivery_Lname = ?, " +
+                "Delivery_Salary = ?, Delivery_BankAcc = ?, Delivery_NINum = ? WHERE Delivery_ID = ?";
+
+        PreparedStatement st = c.prepareStatement(updateStatement);
+
+        st.setString(1, delivery.getDelivery_Fname());
+        st.setString(2, delivery.getDelivery_Lname());
+        st.setFloat(3, delivery.getDelivery_Salary());
+        st.setString(4,delivery.getDelivery_BankAcc());
+        st.setString(5, delivery.getDelivery_NINum());
+        st.setInt(6, id);
+
+        st.executeUpdate();
+    }
+}
 
 
 
