@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 import java.util.List;
-@Api("Soniak Bew API")
+@Api("Soniak Bew Delivery Employee API")
 @Path("/api")
 public class DeliveryController {
     private DeliveryService deliveryService = new DeliveryService();

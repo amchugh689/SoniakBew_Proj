@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8241617f-6d80-42af-b098-e91c88f0f35b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/api/DeliveryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/DeliveryRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/client/FailedToCreateProductException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/client/InvalidDeliveryException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/core/DeliveryValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/db/DeliveryDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/resources/DeliveryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/resources/DeliveryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
