@@ -2,7 +2,8 @@ package org.kainos.ea.resources;
 
 import io.swagger.annotations.Api;
 import org.kainos.ea.api.ProjectService;
-import org.kainos.ea.cli.ProjectRequest;
+import org.kainos.ea.cli.ProjectRequestClientID;
+import org.kainos.ea.cli.ProjectRequestCompleted;
 import org.kainos.ea.client.FailedToGetProjectsException;
 import org.kainos.ea.client.FailedToUpdateProjectException;
 import org.kainos.ea.client.InvalidProjectException;
@@ -12,8 +13,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 import javax.ws.rs.core.MediaType;
-
-import java.util.List;
 
 @Api("Soniak Bew Database API")
 @Path("/api")
@@ -41,10 +40,32 @@ public class ProjectController {
     @PUT
     @Path("/completeproject/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateProject(@PathParam("id") int id, ProjectRequest projectRequest ) {
+    public Response updateProjectCompleted(@PathParam("id") int id, ProjectRequestCompleted project) {
         try {
 
-            projectService.updateProject(id, projectRequest);
+            projectService.updateProjectCompleted(id, project);
+
+            return Response.ok().build();
+        } catch (FailedToUpdateProjectException | ProjectDoesNotExistException e) {
+
+            System.err.println(e.getMessage());
+
+            return Response.serverError().build();
+        } catch (InvalidProjectException e) {
+
+            System.err.println(e.getMessage());
+
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
+    }
+
+    @PUT
+    @Path("/updateprojectclient/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateProjectClient(@PathParam("id") int id, ProjectRequestClientID project) {
+        try {
+
+            projectService.updateProjectClient(id, project);
 
             return Response.ok().build();
         } catch (FailedToUpdateProjectException | ProjectDoesNotExistException e) {

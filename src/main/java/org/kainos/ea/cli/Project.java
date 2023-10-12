@@ -6,8 +6,8 @@ public class Project {
     private int Project_ID;
     private String Project_Name;
     private float Project_Value;
-    private int ClientID;
-    private int SalesID;
+    private int Client_ID;
+    private int Sales_ID;
     private int Tech_Lead;
     private Date Project_Start_Date;
     private Date Project_End_Date;
@@ -17,8 +17,8 @@ public class Project {
         this.Project_ID = project_ID;
         this.Project_Name = project_Name;
         this.Project_Value = project_Value;
-        this.ClientID = clientID;
-        this.SalesID = salesID;
+        this.Client_ID = clientID;
+        this.Sales_ID = salesID;
         this.Tech_Lead = tech_Lead;
         this.Project_Start_Date = project_Start_Date;
         this.Project_End_Date = project_End_Date;
@@ -49,20 +49,20 @@ public class Project {
         Project_Value = project_Value;
     }
 
-    public int getClientID() {
-        return ClientID;
+    public int getClient_ID() {
+        return Client_ID;
     }
 
-    public void setClientID(int clientID) {
-        ClientID = clientID;
+    public void setClient_ID(int client_ID) {
+        Client_ID = client_ID;
     }
 
-    public int getSalesID() {
-        return SalesID;
+    public int getSales_ID() {
+        return Sales_ID;
     }
 
-    public void setSalesID(int salesID) {
-        SalesID = salesID;
+    public void setSales_ID(int sales_ID) {
+        Sales_ID = sales_ID;
     }
 
     public int getTech_Lead() {
@@ -101,7 +101,7 @@ public class Project {
     @Override
     public String toString() {
         return "Project ID: " + this.getProject_ID() + " Project Name: " + this.getProject_Name() + " Project Value: " + this.getProject_Value() +
-                " Client ID: " + this.getClientID() + " Sales ID: " + this.getSalesID() + " Tech Lead ID: " + this.getTech_Lead() + " Start Date: " +
+                " Client ID: " + this.getClient_ID() + " Sales ID: " + this.getSales_ID() + " Tech Lead ID: " + this.getTech_Lead() + " Start Date: " +
                 this.getProject_Start_Date().toLocalDate() + "Project End Date: " + (this.getProject_End_Date() != null ?  this.getProject_End_Date().toLocalDate() : "not finished" ) +
                 " Project completed: " + this.getProject_Completed();
     }

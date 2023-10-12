@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="440e1c18-c1a7-4c18-9a5a-ed51aff6b3fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/client/FailedToGetProjectsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/ProjectRequestClientID.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/api/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/api/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/ProjectRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/ProjectRequestCompleted.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/core/ProjectValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/core/ProjectValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/db/ProjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/db/ProjectDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/resources/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/resources/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +25,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent"><![CDATA[{
