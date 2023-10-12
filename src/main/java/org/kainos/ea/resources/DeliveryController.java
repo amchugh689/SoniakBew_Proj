@@ -1,17 +1,15 @@
 package org.kainos.ea.resources;
 
 import io.swagger.annotations.Api;
-import org.checkerframework.checker.units.qual.A;
 import org.kainos.ea.api.DeliveryService;
 import org.kainos.ea.cli.Delivery;
 import org.kainos.ea.cli.DeliveryRequest;
-import org.kainos.ea.client.FailedToCreateProductException;
+import org.kainos.ea.client.DeliveryDoesNotExistException;
+import org.kainos.ea.client.FailedToCreateDeliveryException;
+import org.kainos.ea.client.FailedToGetDeliveryException;
 import org.kainos.ea.client.InvalidDeliveryException;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.SQLException;
@@ -33,7 +31,7 @@ public class DeliveryController {
     public Response createDelivery(DeliveryRequest delivery) {
         try {
             return Response.ok(deliveryService.createDelivery(delivery)).build();
-        } catch (FailedToCreateProductException e) {
+        } catch (FailedToCreateDeliveryException e) {
             System.err.println(e.getMessage());
 
             return Response.serverError().build();
@@ -41,6 +39,23 @@ public class DeliveryController {
             System.err.println(e.getMessage());
 
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
+    }
+
+    @GET
+    @Path("/delivery/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getDeliveryById(@PathParam("id") int id) {
+        try {
+            return Response.ok(deliveryService.getDeliveryById(id)).build();
+        } catch (FailedToGetDeliveryException e) {
+            System.err.println(e.getMessage());
+
+            return Response.serverError().build();
+        } catch (DeliveryDoesNotExistException e) {
+            System.err.println(e.getMessage());
+
+            return Response.status(Response.Status.BAD_REQUEST).build();
         }
     }
 }
