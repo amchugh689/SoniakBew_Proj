@@ -74,4 +74,22 @@ public class DeliveryController {
             return Response.serverError().build();
         }
     }
+    @DELETE
+    @Path("/delivery/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteDelivery(@PathParam("id") int id) {
+        try {
+            deliveryService.deleteDelivery(id);
+
+            return Response.ok().build();
+        } catch (DeliveryDoesNotExistException e) {
+            System.err.println(e.getMessage());
+
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        } catch (FailedToDeleteDeliveryException e) {
+            System.err.println(e.getMessage());
+
+            return Response.serverError().build();
+        }
+    }
 }
