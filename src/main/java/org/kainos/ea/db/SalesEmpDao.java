@@ -106,4 +106,15 @@ public class SalesEmpDao {
 
         st.executeUpdate();
     }
+
+    public void deleteSalesEmp(int id) throws SQLException {
+        Connection c = databaseConnector.getConnection();
+
+        String deleteStatement = "DELETE FROM Sales_Employee WHERE Sales_ID ="+id;
+
+        PreparedStatement st = c.prepareStatement(deleteStatement);
+
+        st.executeUpdate();
+
+    }
 }

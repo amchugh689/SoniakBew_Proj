@@ -74,25 +74,40 @@ public class SalesEmpService {
         try {
             String validation = salesEmpValidator.isValidSalesEmp(se);
 
-            if(validation != null) {
+            if (validation != null) {
                 throw new InvalidSalesEmpException(validation);
             }
 
 
             SalesEmp empToUpdate = salesEmpDao.getSalesEmpByID(id);
 
-            if(empToUpdate == null) {
+            if (empToUpdate == null) {
                 throw new SalesEmpDoesNotExistException();
             }
             salesEmpDao.updateSalesEmp(id, se);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
 
-                throw new FailedToUpdateSalesEmpException();
+            throw new FailedToUpdateSalesEmpException();
+        }
+    }
+
+        public void deleteSalesEmp(int id) throws SalesEmpDoesNotExistException, FailedToDeleteSalesEmpException {
+            try {
+                SalesEmp salesEmpDelete = salesEmpDao.getSalesEmpByID(id);
+                if (salesEmpDelete == null) {
+                    throw new SalesEmpDoesNotExistException();
+                }
+
+                salesEmpDao.deleteSalesEmp(id);
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+
+                throw new FailedToDeleteSalesEmpException();
+            }
         }
 
 
-    }
+
 
 }
