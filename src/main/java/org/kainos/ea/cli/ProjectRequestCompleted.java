@@ -3,9 +3,8 @@ package org.kainos.ea.cli;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ProjectRequest {
+public class ProjectRequestCompleted {
     private int Project_Completed;
-
     public int getProject_Completed() {
         return Project_Completed;
     }
@@ -15,7 +14,7 @@ public class ProjectRequest {
     }
 
     @JsonCreator
-    public ProjectRequest(
+    public ProjectRequestCompleted(
             //at JSON key "test" accept value x
             // @JsonProperty("test") int x
             //eg "test" : x
