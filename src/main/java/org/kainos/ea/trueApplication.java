@@ -5,6 +5,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
+import org.kainos.ea.resources.ClientProjectValueController;
 import org.kainos.ea.resources.ProjectController;
 
 import org.kainos.ea.resources.SalesEmpController;
@@ -38,6 +39,7 @@ public class trueApplication extends Application<trueConfiguration> {
         // TODO: implement application
         environment.jersey().register(new ProjectController());
         environment.jersey().register(new SalesEmpController());
+        environment.jersey().register(new ClientProjectValueController());
     }
 
 }
