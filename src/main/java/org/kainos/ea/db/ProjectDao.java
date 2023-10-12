@@ -4,8 +4,10 @@ import org.kainos.ea.cli.Project;
 import org.kainos.ea.cli.ProjectRequest;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 
 public class ProjectDao {
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     private DatabaseConnector databaseConnector = new DatabaseConnector();
     public Project getProjectById(int Id) throws SQLException {
         Connection c = databaseConnector.getConnection();
@@ -22,7 +24,7 @@ public class ProjectDao {
                     rs.getInt("Client_ID"),
                     rs.getInt("Sales_ID"),
                     rs.getInt("Tech_Lead"),
-                    rs.getDate("Project_Start_Date"),
+                   rs.getDate("Project_Start_Date"),
                     rs.getDate("Project_End_Date"),
                     rs.getInt("Project_Completed")
             );
@@ -33,8 +35,7 @@ public class ProjectDao {
 
     public void updateProject(int id, ProjectRequest project) throws SQLException {
         Connection c = databaseConnector.getConnection();
-
-        String updateStatement = "UPDATE Project SET Project_Completed = ? WHERE Product_ID = ?";
+        String updateStatement = "UPDATE Project SET Project_Completed = ? WHERE Project_ID = ?";
 
         PreparedStatement st = c.prepareStatement(updateStatement);
 
