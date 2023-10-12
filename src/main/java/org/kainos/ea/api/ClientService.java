@@ -1,16 +1,18 @@
 package org.kainos.ea.api;
 
-import io.dropwizard.cli.Cli;
-import org.kainos.ea.cli.Client;
+//import org.kainos.ea.cli.Client;
+import org.kainos.ea.cli.ClientProjectEmp;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClientService {
-    public List<Client> getAllClients() {
-        List<Client> clientList = new ArrayList<>();
+    public List<ClientProjectEmp> getAllClients() {
+        List<ClientProjectEmp> clientList = new ArrayList<>();
 
-        Client client1 
+        ClientProjectEmp client1 = new ClientProjectEmp(11, "John", "Doe", "Project11", "Matt", "Hand");
+
+        clientList.add(client1);
 
         return clientList;
     }
