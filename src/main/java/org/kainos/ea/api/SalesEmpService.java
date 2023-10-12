@@ -102,8 +102,9 @@ public class SalesEmpService {
                     throw new SalesEmpDoesNotExistException();
                 }
 
-                salesEmpDao.deleteSalesEmp(id);
                 projectDao.removeProjectSalesID(id);
+                salesEmpDao.deleteSalesEmp(id);
+
             } catch (SQLException e) {
                 System.err.println(e.getMessage());
 
