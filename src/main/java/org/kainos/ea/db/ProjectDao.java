@@ -1,7 +1,6 @@
 package org.kainos.ea.db;
 
 import org.kainos.ea.cli.Project;
-import org.kainos.ea.cli.ProjectRequest;
 import org.kainos.ea.cli.ProjectTechDel;
 
 import java.sql.*;
@@ -59,7 +58,7 @@ public class ProjectDao {
 
         List<ProjectTechDel> projectList = new ArrayList<>();
 
-        while (rs.next()){
+        while (rs.next()) {
             ProjectTechDel project = new ProjectTechDel(
                     rs.getString("Project_Name"),
                     rs.getInt("Tech_Lead"),
@@ -70,6 +69,7 @@ public class ProjectDao {
         }
 
         return projectList;
+    }
   
     public void updateProjectClient(int id, ProjectRequestClientID project) throws SQLException {
         Connection c = databaseConnector.getConnection();
