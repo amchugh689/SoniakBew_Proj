@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="440e1c18-c1a7-4c18-9a5a-ed51aff6b3fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/client/FailedToGetProjectsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InsertingData.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/api/SalesEmpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/SalesEmp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/cli/SalesEmpRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/client/FailedToCreateSalesEmpException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/client/InvalidSalesEmpException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/core/SalesEmpValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/db/SalesEmpDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/resources/SalesEmpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/api/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/api/ProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/db/ProjectDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/db/ProjectDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/resources/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/resources/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/kainos/ea/trueConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +33,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "SB016-Set-Project-As-Complete",
+    "git-widget-placeholder": "Merging SB016-Set-Project-As-Complete",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
