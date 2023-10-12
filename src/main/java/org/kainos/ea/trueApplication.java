@@ -7,6 +7,7 @@ import org.kainos.ea.resources.DeliveryController;
 
 import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
+import org.kainos.ea.resources.ClientProjectValueController;
 import org.kainos.ea.resources.ClientProjectEmpController;
 import org.kainos.ea.resources.ProjectController;
 import org.kainos.ea.resources.SalesEmpController;
@@ -41,6 +42,7 @@ public class trueApplication extends Application<trueConfiguration> {
         environment.jersey().register((new DeliveryController()));
         environment.jersey().register(new ProjectController());
         environment.jersey().register(new SalesEmpController());
+        environment.jersey().register(new ClientProjectValueController());
     }
 
 }
