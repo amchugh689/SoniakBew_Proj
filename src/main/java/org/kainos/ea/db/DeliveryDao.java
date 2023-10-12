@@ -46,11 +46,11 @@ public class DeliveryDao {
 
         PreparedStatement st = c.prepareStatement(insertStatement, Statement.RETURN_GENERATED_KEYS);
 
-        st.setString(1,delivery.getDelivery_Fname());
-        st.setString(2,delivery.getDelivery_Lname());
-        st.setDouble(3,delivery.getDelivery_Salary());
-        st.setString(4,delivery.getDelivery_BankAcc());
-        st.setString(5,delivery.getDelivery_NINum());
+        st.setString(1, delivery.getDelivery_Fname());
+        st.setString(2, delivery.getDelivery_Lname());
+        st.setDouble(3, delivery.getDelivery_Salary());
+        st.setString(4, delivery.getDelivery_BankAcc());
+        st.setString(5, delivery.getDelivery_NINum());
 
         st.executeUpdate();
 
@@ -62,6 +62,36 @@ public class DeliveryDao {
 
         return -1;
     }
+
+    public Delivery getDeliveryById(int id) throws SQLException {
+        Connection c = databaseConnector.getConnection();
+
+        Statement st = c.createStatement();
+
+        ResultSet rs = st.executeQuery("SELECT Delivery_ID, Delivery_Fname, Delivery_Lname, " +
+                "Delivery_Salary, Delivery_BankAcc, Delivery_NINum FROM Delivery_Employee where Delivery_ID= " +
+                id);
+
+        while (rs.next()) {
+            return new Delivery(
+                    rs.getInt("Delivery_ID"),
+                    rs.getString("Delivery_Fname"),
+                    rs.getString("Delivery_Lname"),
+                    rs.getFloat("Delivery_Salary"),
+                    rs.getString("Delivery_BankAcc"),
+                    rs.getString("Delivery_NINum")
+            );
+        }
+
+        return null;
+    }
 }
+
+//    public void updateDelivery(int id, DeliveryRequest delivery) throws SQLException {
+//        Connection c = databaseConnector.getConnection();
+//
+//        String updateStatement = "UPDATE Delivery_Employee SET "
+//    }
+
 
 
