@@ -82,4 +82,15 @@ public class ProjectDao {
 
         st.executeUpdate();
     }
+
+    public void removeProjectSalesID(int id) throws SQLException {
+        Connection c = databaseConnector.getConnection();
+        String updateStatement = "UPDATE Project SET Sales_ID = null WHERE Sales_ID = ?";
+
+        PreparedStatement st = c.prepareStatement(updateStatement);
+
+        st.setInt(1, id);
+
+        st.executeUpdate();
+    }
 }

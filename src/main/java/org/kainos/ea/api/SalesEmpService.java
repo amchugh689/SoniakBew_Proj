@@ -1,10 +1,12 @@
 package org.kainos.ea.api;
 
+import org.kainos.ea.cli.Project;
 import org.kainos.ea.cli.SalesEmp;
 import org.kainos.ea.cli.SalesEmpRequest;
 import org.kainos.ea.client.*;
 import org.kainos.ea.core.SalesEmpValidator;
 import org.kainos.ea.db.DatabaseConnector;
+import org.kainos.ea.db.ProjectDao;
 import org.kainos.ea.db.SalesEmpDao;
 
 import java.sql.Connection;
@@ -13,6 +15,7 @@ import java.util.List;
 
 public class SalesEmpService {
     SalesEmpDao salesEmpDao = new SalesEmpDao();
+    private ProjectDao projectDao = new ProjectDao();
 
     private static Connection conn;
     private static DatabaseConnector databaseConnector;
@@ -99,7 +102,9 @@ public class SalesEmpService {
                     throw new SalesEmpDoesNotExistException();
                 }
 
+                projectDao.removeProjectSalesID(id);
                 salesEmpDao.deleteSalesEmp(id);
+
             } catch (SQLException e) {
                 System.err.println(e.getMessage());
 
