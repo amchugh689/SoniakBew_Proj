@@ -5,17 +5,17 @@ import org.kainos.ea.api.SalesEmpService;
 import org.kainos.ea.cli.SalesEmp;
 import org.kainos.ea.cli.SalesEmpRequest;
 import org.kainos.ea.client.FailedToCreateSalesEmpException;
+import org.kainos.ea.client.FailedToGetSalesEmpException;
 import org.kainos.ea.client.InvalidSalesEmpException;
+import org.kainos.ea.client.SalesEmpDoesNotExistException;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.print.attribute.standard.Media;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
-@Api("Soniak Bew API")
+@Api("Soniak Bew Sales Employee API")
 @Path("/api")
 public class SalesEmpController {
 
@@ -29,6 +29,26 @@ public class SalesEmpController {
     public String getSalesEmployees() {
         return "test value";
     }*/
+
+    @GET
+    @Path("/salesemps/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getSalesEmpByID(@PathParam("id") int id) {
+        try{
+            return Response.ok(salesEmpService.getSalesEmpByID(id)).build();
+        }
+        catch (FailedToGetSalesEmpException e) {
+            System.err.println(e.getMessage());
+
+            return Response.serverError().build();
+        }
+        catch (SalesEmpDoesNotExistException e) {
+            System.err.println(e.getMessage());
+
+            return Response.status(Response.Status.BAD_REQUEST).build();
+
+        }
+    }
 
     @POST
     @Path("/salesemps")
@@ -49,6 +69,8 @@ public class SalesEmpController {
         }
 
     }
+
+
 
 
 

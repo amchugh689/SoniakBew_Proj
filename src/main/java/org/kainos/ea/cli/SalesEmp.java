@@ -72,4 +72,12 @@ public class SalesEmp {
         Sales_NINum = sales_NINum;
         Sales_CommRate = sales_CommRate;
     }
+    public SalesEmp(String sales_Fname, String sales_Lname, double sales_Salary, String sales_BankAcc, String sales_NINum, double sales_CommRate) {
+        Sales_Fname = sales_Fname;
+        Sales_Lname = sales_Lname;
+        Sales_Salary = sales_Salary;
+        Sales_BankAcc = sales_BankAcc;
+        Sales_NINum = sales_NINum;
+        Sales_CommRate = sales_CommRate;
+    }
 }
