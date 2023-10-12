@@ -2,6 +2,8 @@ package org.kainos.ea.resources;
 
 import io.swagger.annotations.Api;
 import org.kainos.ea.api.ProjectService;
+import org.kainos.ea.cli.ProjectRequest;
+import org.kainos.ea.client.*;
 import org.kainos.ea.cli.ProjectRequestClientID;
 import org.kainos.ea.cli.ProjectRequestCompleted;
 import org.kainos.ea.client.FailedToGetProjectsException;
@@ -14,11 +16,26 @@ import javax.ws.rs.core.Response;
 
 import javax.ws.rs.core.MediaType;
 
-@Api("Soniak Bew Database API")
+import java.util.List;
+
+@Api("Soniak Bew Project Database API")
 @Path("/api")
 public class ProjectController {
 
     private ProjectService projectService = new ProjectService();
+
+    @GET
+    @Path("/projecttechdelivery")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getOrders(){
+        try {
+            return Response.ok(projectService.getProjectTechDelivery()).build();
+        } catch (FailedToGetProjectTechDelException e){
+            System.err.println(e.getMessage());
+
+            return Response.serverError().build();
+        }
+    }
 
     @GET
     @Path("/projects/{id}")

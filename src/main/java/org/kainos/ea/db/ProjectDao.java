@@ -1,13 +1,19 @@
 package org.kainos.ea.db;
 
 import org.kainos.ea.cli.Project;
+import org.kainos.ea.cli.ProjectRequest;
+import org.kainos.ea.cli.ProjectTechDel;
+
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import org.kainos.ea.cli.ProjectRequestClientID;
 import org.kainos.ea.cli.ProjectRequestCompleted;
 
-import java.sql.*;
-
 public class ProjectDao {
     private DatabaseConnector databaseConnector = new DatabaseConnector();
+  
     public Project getProjectById(int Id) throws SQLException {
         Connection c = databaseConnector.getConnection();
 
@@ -44,6 +50,27 @@ public class ProjectDao {
         st.executeUpdate();
     }
 
+    public List<ProjectTechDel> getProjectTechDelivery() throws SQLException {
+
+        Connection c = databaseConnector.getConnection();
+        Statement st = c.createStatement();
+
+        ResultSet rs = st.executeQuery("SELECT Project_Name, Tech_Lead, GROUP_CONCAT(CONCAT(Delivery_FName,' ', Delivery_Lname ) separator ', ') as 'Name' FROM Project INNER JOIN Project_Delivery ON Project.Project_ID = Project_Delivery.Project_ID INNER JOIN Delivery_Employee ON Delivery_Employee.Delivery_ID = Project_Delivery.Delivery_ID GROUP BY Project.Project_ID;");
+
+        List<ProjectTechDel> projectList = new ArrayList<>();
+
+        while (rs.next()){
+            ProjectTechDel project = new ProjectTechDel(
+                    rs.getString("Project_Name"),
+                    rs.getInt("Tech_Lead"),
+                    rs.getString("Name")
+            );
+
+            projectList.add(project);
+        }
+
+        return projectList;
+  
     public void updateProjectClient(int id, ProjectRequestClientID project) throws SQLException {
         Connection c = databaseConnector.getConnection();
         String updateStatement = "UPDATE Project SET Client_ID = ? WHERE Project_ID = ?";

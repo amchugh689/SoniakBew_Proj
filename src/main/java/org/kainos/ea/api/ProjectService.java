@@ -1,6 +1,8 @@
 package org.kainos.ea.api;
 
 import org.kainos.ea.cli.Project;
+import org.kainos.ea.cli.ProjectRequest;
+import org.kainos.ea.cli.ProjectTechDel;
 import org.kainos.ea.cli.ProjectRequestClientID;
 import org.kainos.ea.cli.ProjectRequestCompleted;
 import org.kainos.ea.client.FailedToGetProjectsException;
@@ -11,11 +13,22 @@ import org.kainos.ea.core.ProjectValidator;
 import org.kainos.ea.db.ProjectDao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class ProjectService {
 
     private ProjectValidator projectValidator = new ProjectValidator();
     private ProjectDao projectDao = new ProjectDao();
+
+    public List<ProjectTechDel> getProjectTechDelivery() throws FailedToGetProjectTechDelException {
+        try {
+            List<ProjectTechDel> projectList = projectDao.getProjectTechDelivery();
+
+            return projectList;
+        } catch (SQLException e) {
+            throw new FailedToGetProjectTechDelException();
+        }
+    }
 
     public Project getProjectById(int id) throws FailedToGetProjectsException, ProjectDoesNotExistException {
         try{
