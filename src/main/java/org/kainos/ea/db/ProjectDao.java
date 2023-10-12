@@ -2,9 +2,12 @@ package org.kainos.ea.db;
 
 import org.kainos.ea.cli.Project;
 import org.kainos.ea.cli.ProjectRequest;
+import org.kainos.ea.cli.ProjectTechDel;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProjectDao {
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -43,5 +46,27 @@ public class ProjectDao {
         st.setInt(2, id);
 
         st.executeUpdate();
+    }
+
+    public List<ProjectTechDel> getProjectTechDelivery() throws SQLException {
+
+        Connection c = databaseConnector.getConnection();
+        Statement st = c.createStatement();
+
+        ResultSet rs = st.executeQuery("SELECT Project_Name, Tech_Lead, GROUP_CONCAT(CONCAT(Delivery_FName,' ', Delivery_Lname)) as 'Name' FROM Project INNER JOIN Project_Delivery ON Project.Project_ID = Project_Delivery.Project_ID INNER JOIN Delivery_Employee ON Delivery_Employee.Delivery_ID = Project_Delivery.Delivery_ID GROUP BY Project.Project_ID;");
+
+        List<ProjectTechDel> projectList = new ArrayList<>();
+
+        while (rs.next()){
+            ProjectTechDel project = new ProjectTechDel(
+                    rs.getString("Project_Name"),
+                    rs.getInt("Tech_Lead"),
+                    rs.getString("Name")
+            );
+
+            projectList.add(project);
+        }
+
+        return projectList;
     }
 }

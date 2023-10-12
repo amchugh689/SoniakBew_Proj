@@ -2,20 +2,29 @@ package org.kainos.ea.api;
 
 import org.kainos.ea.cli.Project;
 import org.kainos.ea.cli.ProjectRequest;
-import org.kainos.ea.client.FailedToGetProjectsException;
-import org.kainos.ea.client.FailedToUpdateProjectException;
-import org.kainos.ea.client.InvalidProjectException;
-import org.kainos.ea.client.ProjectDoesNotExistException;
+import org.kainos.ea.cli.ProjectTechDel;
+import org.kainos.ea.client.*;
 import org.kainos.ea.core.ProjectValidator;
 import org.kainos.ea.db.ProjectDao;
 
 import javax.validation.constraints.Null;
 import java.sql.SQLException;
+import java.util.List;
 
 public class ProjectService {
 
     private ProjectValidator projectValidator = new ProjectValidator();
     private ProjectDao projectDao = new ProjectDao();
+
+    public List<ProjectTechDel> getProjectTechDelivery() throws FailedToGetProjectTechDelException {
+        try {
+            List<ProjectTechDel> projectList = projectDao.getProjectTechDelivery();
+
+            return projectList;
+        } catch (SQLException e) {
+            throw new FailedToGetProjectTechDelException();
+        }
+    }
 
     public Project getProjectById(int id) throws FailedToGetProjectsException, ProjectDoesNotExistException {
         try{
