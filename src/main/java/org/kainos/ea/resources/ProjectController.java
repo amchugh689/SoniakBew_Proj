@@ -2,7 +2,6 @@ package org.kainos.ea.resources;
 
 import io.swagger.annotations.Api;
 import org.kainos.ea.api.ProjectService;
-import org.kainos.ea.cli.ProjectRequest;
 import org.kainos.ea.client.*;
 import org.kainos.ea.cli.ProjectRequestClientID;
 import org.kainos.ea.cli.ProjectRequestCompleted;
@@ -55,7 +54,7 @@ public class ProjectController {
     }
 
     @PUT
-    @Path("/completeproject/{id}")
+    @Path("/updatecompleteproject/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateProjectCompleted(@PathParam("id") int id, ProjectRequestCompleted project) {
         try {

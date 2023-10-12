@@ -1,14 +1,10 @@
 package org.kainos.ea.api;
 
 import org.kainos.ea.cli.Project;
-import org.kainos.ea.cli.ProjectRequest;
 import org.kainos.ea.cli.ProjectTechDel;
 import org.kainos.ea.cli.ProjectRequestClientID;
 import org.kainos.ea.cli.ProjectRequestCompleted;
-import org.kainos.ea.client.FailedToGetProjectsException;
-import org.kainos.ea.client.FailedToUpdateProjectException;
-import org.kainos.ea.client.InvalidProjectException;
-import org.kainos.ea.client.ProjectDoesNotExistException;
+import org.kainos.ea.client.*;
 import org.kainos.ea.core.ProjectValidator;
 import org.kainos.ea.db.ProjectDao;
 
