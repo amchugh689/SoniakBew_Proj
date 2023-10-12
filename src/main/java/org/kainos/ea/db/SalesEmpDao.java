@@ -14,6 +14,31 @@ public class SalesEmpDao {
     private static Connection conn;
     private static DatabaseConnector databaseConnector;
 
+    public List<SalesEmp> getAllSalesEmps() throws SQLException {
+        Connection c = databaseConnector.getConnection();
+
+        Statement st = c.createStatement();
+
+        ResultSet rs = st.executeQuery("SELECT Sales_ID, Sales_Fname, Sales_Lname, Sales_Salary, Sales_BankAcc," +
+                " Sales_NINum, Sales_CommRate FROM Sales_Employee");
+        List<SalesEmp> holdList = new ArrayList<>();
+        while(rs.next()) {
+            SalesEmp salesEmp = new SalesEmp(
+                    rs.getInt("Sales_ID"),
+                    rs.getString("Sales_Fname"),
+                    rs.getString("Sales_Lname"),
+                    rs.getDouble("Sales_Salary"),
+                    rs.getString("Sales_BankAcc"),
+                    rs.getString("Sales_NINum"),
+                    rs.getDouble("Sales_CommRate")
+            );
+
+            holdList.add(salesEmp);
+        }
+
+        return holdList;
+    }
+
     public SalesEmp getSalesEmpByID(int id) throws SQLException {
         Connection c = databaseConnector.getConnection();
 
