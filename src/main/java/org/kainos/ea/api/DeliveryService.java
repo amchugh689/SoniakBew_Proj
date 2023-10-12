@@ -2,6 +2,7 @@ package org.kainos.ea.api;
 
 import org.kainos.ea.cli.Delivery;
 import org.kainos.ea.cli.DeliveryRequest;
+import org.kainos.ea.cli.SalesEmp;
 import org.kainos.ea.client.*;
 import org.kainos.ea.core.DeliveryValidator;
 import org.kainos.ea.db.DeliveryDao;
@@ -75,6 +76,21 @@ public class DeliveryService {
             System.err.println(e.getMessage());
 
             throw new FailedToUpdateDeliveryException();
+        }
+    }
+
+    public void deleteDelivery(int id) throws DeliveryDoesNotExistException, FailedToDeleteDeliveryException {
+        try {
+            Delivery deliveryDelete = deliveryDao.getDeliveryById(id);
+            if (deliveryDelete == null) {
+                throw new DeliveryDoesNotExistException();
+            }
+
+            deliveryDao.deleteDelivery(id);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+
+            throw new FailedToDeleteDeliveryException();
         }
     }
 }
