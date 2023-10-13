@@ -4,13 +4,9 @@ package org.kainos.ea.resources;
 import io.swagger.annotations.Api;
 import org.kainos.ea.api.DeliveryProjectService;
 import org.kainos.ea.cli.DeliveryProjectRequest;
-import org.kainos.ea.client.FailedToCreateDeliveryProjectException;
-import org.kainos.ea.client.InvalidDeliveryProjectException;
+import org.kainos.ea.client.*;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -18,6 +14,8 @@ import javax.ws.rs.core.Response;
 @Path("/api")
 public class DeliveryProjectController {
     DeliveryProjectService deliveryProjectService = new DeliveryProjectService();
+
+
 
 
     @POST
@@ -39,5 +37,25 @@ public class DeliveryProjectController {
 
 
         }
+    }
+
+    @PUT
+    @Path("/projectdelivery")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateDeliveryProject(DeliveryProjectRequest der) {
+        try {
+            deliveryProjectService.updateDeliveryProject(der);
+            return Response.ok().build();
+        } catch (FailedToUpdateDeliveryProjectException e) {
+            System.err.println(e.getMessage());
+
+            return Response.serverError().build();
+        } catch (InvalidDeliveryProjectException e) {
+            System.err.println(e.getMessage());
+
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
+
+
     }
 }

@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Api("Soniak Bew API")
+@Api("Soniak Bew Client API")
 @Path("/api")
 public class ClientProjectEmpController {
     private ClientProjectEmpService clientProjectEmpService = new ClientProjectEmpService();

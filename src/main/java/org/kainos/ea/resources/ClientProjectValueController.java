@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Api("Soniak Bew API")
+@Api("Soniak Bew Client API")
 @Path("/api")
 public class ClientProjectValueController {
     private ClientProjectValueService clientProjectValueService = new ClientProjectValueService();
